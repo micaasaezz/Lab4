@@ -1,4 +1,43 @@
-<h1>{{msj}}</h1>
-<input type="text"/>
-<input type="button" [value]="msjBoton" (click)="Enviar($event)"/>
+<!--
+<h1>{{nombre}}</h1>
+<input type="text" [(ngModel)]="nombre"/>
+<input type="button" [value]="msjBoton" (click)="Enviar($event)"/>-->
+<!--- imprime lo del div si la condicion se cumple -->
+<!--<div *ngIf="nombre=='pepe'">
+HOLII
+</div>-->
+<!--- imprime una lista iterando los items del array -->
+<!---<ul>
+  <li *ngFor="let item of [2,4,6,8]">
+    {{item}} <br>
+  </li>
+</ul>-->
+<!--- imprime una lista iterando los items del array de ts con elementos de ngMpdel -->
+<!--<ul>
+  <li *ngFor="let item of lista; let i=index; let odd=odd; let last=last; let even=even;">
+    {{item}} <br>
+    {{i}} <br>
+    {{odd}} <br>
+    {{last}} <br>
+    {{even}} <br>
+  </li>
+</ul-->
 
+<h2>Cargar Datos</h2>
+<input type="text" [(ngModel)]="nombrep" placeholder="Nombre"/><br>
+<input type="text" [(ngModel)]="apellido" placeholder="Apellido"/><br>
+<input type="text" [(ngModel)]="sueldo" placeholder="Sueldo"/><br>
+
+<input type="button" value="Enviar" (click)="EnviarPersona()"/><br><br>
+<div *ngIf="personasArray.lengh > 0">
+  <tr>
+    <td>Nombre</td>
+    <td>Apellido</td>
+    <td>Sueldo</td>
+  </tr>
+  <tr *ngFor="let item of personasArray; ">
+    <td>{{item.nombre}}</td>
+    <td>{{item.apellido}}</td>
+    <td>{{item.sueldo}}</td>
+  </tr>
+</div>
