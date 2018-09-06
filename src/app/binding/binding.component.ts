@@ -46,7 +46,14 @@ export class BindingComponent implements OnInit, OnChanges, AfterViewInit, OnDes
   EnviarPersona()
   {
     let persona = new Persona(this.nombrep, this.apellido, this.sueldo);
-    //this.personasArray.push(persona.ToString());
+    console.log(persona.ToString());
     this.personasArray.push(persona);
   }
+
+  Cant(numero)
+  {
+    console.log(numero);
+  }
+
+
 }

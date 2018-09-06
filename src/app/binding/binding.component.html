@@ -24,20 +24,11 @@ HOLII
 </ul-->
 
 <h2>Cargar Datos</h2>
-<input type="text" [(ngModel)]="nombrep" placeholder="Nombre"/><br>
-<input type="text" [(ngModel)]="apellido" placeholder="Apellido"/><br>
-<input type="text" [(ngModel)]="sueldo" placeholder="Sueldo"/><br>
+<input type="text" [(ngModel)]="nombrep" placeholder="Ingresar Nombre"/><br>
+<input type="text" [(ngModel)]="apellido" placeholder="Ingresar Apellido"/><br>
+<input type="text" [(ngModel)]="sueldo" placeholder="Ingresar Sueldo"/><br>
 
 <input type="button" value="Enviar" (click)="EnviarPersona()"/><br><br>
-<div *ngIf="personasArray.lengh > 0">
-  <tr>
-    <td>Nombre</td>
-    <td>Apellido</td>
-    <td>Sueldo</td>
-  </tr>
-  <tr *ngFor="let item of personasArray; ">
-    <td>{{item.nombre}}</td>
-    <td>{{item.apellido}}</td>
-    <td>{{item.sueldo}}</td>
-  </tr>
-</div>
+
+
+<app-grilla [lista]="personasArray" [persona]="persona" (cantidad)="Cant($event)"></app-grilla>

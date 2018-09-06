@@ -1,0 +1,15 @@
+<h2>Grilla</h2>
+<div >
+  <table border="1">
+    <tr>
+      <td>Nombre</td>
+      <td>Apellido</td>
+      <td>Sueldo</td>
+    </tr>
+    <tr *ngFor="let item of lista; ">
+      <td>{{item.nombre}}</td>
+      <td>{{item.apellido}}</td>
+      <td>{{item.sueldo}}</td>
+    </tr>
+  </table>
+</div>
