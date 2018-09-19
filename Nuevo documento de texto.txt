@@ -1,0 +1,29 @@
+CREATE TABLE prov_prod (
+ numero int,
+ pnro int,
+ cantidad int NOT NULL,
+ PRIMARY KEY(numero,pnro),
+ FOREIGN KEY(numero) REFERENCES proveedores(numero),
+ FOREIGN KEY(pnro) REFERENCES productos(pnro)   
+)
+DDL
+1) CREATE VIEW v_numeros_prov_prod As SELECT productos.pnro, proveedores.numero FROM productos, proveedores WHERE productos.localidad != proveedores.localidad
+2) ALTER TABLE productos ADD importador varchar(50) 
+3) CREATE VIEW v_proveedores_wilde AS SELECT * FROM proveedores WHERE proveedores.localidad = 'wilde'
+4) CREATE TABLE departamentos ( idDept int , PRIMARY key(idDept) )
+CREATE TABLE empleados ( idEmpl int , idDepto int NOT NULL, PRIMARY key(idEmpl), FOREIGN key(idDepto) REFERENCES departamentos(idDept) )
+
+CREATE TABLE medicamentos ( idMed int , PRIMARY key(idMed) )
+CREATE TABLE pacientes ( idPac int , idMed int, PRIMARY key(idPac) , FOREIGN key(idMed) REFERENCES medicamentos(idMed) )
+
+DML
+1) SELECT * FROM productos
+2) SELECT * FROM proveedores WHERE proveedores.localidad='capital'
+3) SELECT * FROM prov_prod WHERE prov_prod.cantidad>199 AND prov_prod.cantidad<301
+4) SELECT prov_prod.pnro FROM prov_prod, proveedores WHERE proveedores.localidad='avellaneda'
+5) SELECT p.cantidad FROM prov_prod AS p WHERE p.numero=103 and p.pnro=001
+6) SELECT p.pnro, p.localidad FROM productos AS p WHERE p.localidad like '_a' GROUP BY p.pnro
+7) SELECT DISTINCT p.precio FROM productos AS p, prov_prod WHERE prov_prod.numero=102
+8) SELECT productos.localidad FROM productos GROUP BY productos.localidad UNION SELECT proveedores.localidad FROM proveedores GROUP BY proveedores.localidad
+9) UPDATE productos.tamaño FROM productos WHERE productos.tamaño='mediano'
+10) DELETE FROM productos WHERE productos.pnro NOT IN(SELECT DISTINCT prov_prod.pnro FROM prov_prod)
