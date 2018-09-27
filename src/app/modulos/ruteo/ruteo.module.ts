@@ -8,6 +8,7 @@ import { GrillaComponent } from '../../grilla/grilla.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from '../../error/error.component';
 
+
 const rutas : Routes = [
   { path:'', component:AppComponent },
   { path:'grilla', component:GrillaComponent },
